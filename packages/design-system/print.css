@@ -1,0 +1,49 @@
+@media print {
+  body {
+    background-color: var(--gt-white);
+    font-size: 11pt;
+    color: #000;
+  }
+
+  .ds-no-print,
+  nav,
+  header nav,
+  aside,
+  .ds-button,
+  .ds-tooltip__bubble {
+    display: none !important;
+  }
+
+  .ds-print-header {
+    display: block !important;
+    border-bottom: 1px solid #000;
+    padding-bottom: 8pt;
+    margin-bottom: 12pt;
+  }
+
+  .ds-print-footer {
+    display: block !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #000;
+    padding-top: 4pt;
+    font-size: 9pt;
+  }
+
+  .ds-card,
+  .ds-table {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+}
