@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--gt-font-base);
+  font-size: var(--gt-fs-md);
+  line-height: 1.5;
+  color: var(--gt-graphite-800);
+  background-color: var(--gt-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--gt-space-3);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--gt-graphite-800);
+}
+
+h1 { font-size: var(--gt-fs-3xl); }
+h2 { font-size: var(--gt-fs-2xl); }
+h3 { font-size: var(--gt-fs-xl); }
+h4 { font-size: var(--gt-fs-lg); }
+
+p {
+  margin: 0 0 var(--gt-space-3);
+}
+
+a {
+  color: var(--gt-green-700);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gt-green-600);
+  outline-offset: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
