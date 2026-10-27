@@ -40,4 +40,13 @@ export function EmployeeViewPage() {
             <tr><th>Cargo</th><td>{employee.role}</td></tr>
             <tr><th>Status</th><td>{employee.status}</td></tr>
             <tr><th>Data de nascimento</th><td>{employee.birthDate}</td></tr>
-            <
+            <tr><th>Data de início</th><td>{employee.startDate}</td></tr>
+            <tr><th>Data de registro</th><td>{new Date(employee.registrationDate).toLocaleString('pt-BR')}</td></tr>
+            <tr><th>E-mail corporativo</th><td>{employee.corporateEmail ?? '—'}</td></tr>
+            <tr><th>Celular</th><td>{employee.mobilePhone ?? '—'}</td></tr>
+          </tbody>
+        </table>
+      </PrintLayout>
+    </div>
+  );
+}
