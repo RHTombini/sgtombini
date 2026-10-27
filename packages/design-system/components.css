@@ -207,3 +207,38 @@
 .ds-toast--success { background-color: var(--gt-success); }
 .ds-toast--error   { background-color: var(--gt-danger); }
 .ds-toast--info    { background-color: var(--gt-info); }
+
+/* Sidebar compartilhada (todos os módulos) */
+.ds-sidebar {
+  background-color: var(--gt-white);
+  border-right: 1px solid var(--gt-graphite-200);
+  padding: var(--gt-space-4);
+  min-height: 100%;
+}
+
+.ds-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--gt-space-1);
+}
+
+.ds-sidebar__link {
+  display: block;
+  padding: var(--gt-space-2) var(--gt-space-3);
+  border-radius: var(--gt-radius-md);
+  color: var(--gt-graphite-800);
+  font-size: var(--gt-fs-sm);
+}
+
+.ds-sidebar__link:hover {
+  background-color: var(--gt-bg);
+  text-decoration: none;
+}
+
+.ds-sidebar__link--active {
+  background-color: var(--gt-green-100);
+  color: var(--gt-green-700);
+  font-weight: 600;
+}
