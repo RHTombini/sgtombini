@@ -1,0 +1,54 @@
+:root {
+  /* Cores institucionais */
+  --gt-green-600: #65A70A;
+  --gt-green-700: #558C08;
+  --gt-green-100: #E8F2D4;
+  --gt-graphite-800: #4F484A;
+  --gt-graphite-600: #6E6869;
+  --gt-graphite-200: #D9D6D7;
+  --gt-white: #FFFFFF;
+  --gt-bg: #F7F8F6;
+
+  /* Estados */
+  --gt-danger: #B42318;
+  --gt-danger-bg: #FEE4E2;
+  --gt-warning: #B54708;
+  --gt-warning-bg: #FEF0C7;
+  --gt-info: #175CD3;
+  --gt-info-bg: #D1E9FF;
+  --gt-success: #067647;
+  --gt-success-bg: #DCFAE6;
+
+  /* Tipografia */
+  --gt-font-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --gt-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --gt-fs-xs: 12px;
+  --gt-fs-sm: 14px;
+  --gt-fs-md: 16px;
+  --gt-fs-lg: 18px;
+  --gt-fs-xl: 20px;
+  --gt-fs-2xl: 24px;
+  --gt-fs-3xl: 32px;
+
+  /* Espaçamento */
+  --gt-space-1: 4px;
+  --gt-space-2: 8px;
+  --gt-space-3: 12px;
+  --gt-space-4: 16px;
+  --gt-space-6: 24px;
+  --gt-space-8: 32px;
+  --gt-space-12: 48px;
+
+  /* Raio e sombra */
+  --gt-radius-sm: 4px;
+  --gt-radius-md: 6px;
+  --gt-radius-lg: 10px;
+  --gt-radius-pill: 999px;
+  --gt-shadow-sm: 0 1px 2px rgba(79, 72, 74, 0.08);
+  --gt-shadow-md: 0 4px 12px rgba(79, 72, 74, 0.12);
+
+  /* Layout */
+  --gt-header-height: 56px;
+  --gt-sidebar-width: 240px;
+  --gt-content-max: 1280px;
+}
