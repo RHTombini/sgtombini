@@ -1,3 +1,6 @@
+export { Sidebar } from './Sidebar';
+export type { SidebarModule, SidebarProps } from './Sidebar';
+
 export const designSystemStyles = {
   tokens: '@sgt/design-system/tokens.css',
   base: '@sgt/design-system/base.css',
