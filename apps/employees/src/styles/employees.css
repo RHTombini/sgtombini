@@ -1,0 +1,66 @@
+.emp-layout {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.emp-header {
+  height: var(--gt-header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gt-space-6);
+  background-color: var(--gt-white);
+  border-bottom: 1px solid var(--gt-graphite-200);
+}
+
+.emp-header__brand { display: flex; align-items: center; gap: var(--gt-space-3); }
+.emp-header__logo { height: 32px; width: auto; }
+.emp-header__module { font-weight: 600; }
+.emp-header__account { display: flex; align-items: center; gap: var(--gt-space-3); }
+.emp-header__user { font-size: var(--gt-fs-sm); color: var(--gt-graphite-600); }
+
+.emp-layout__body {
+  display: grid;
+  grid-template-columns: var(--gt-sidebar-width) 1fr;
+}
+
+.emp-layout__content {
+  padding: var(--gt-space-6);
+  max-width: var(--gt-content-max);
+  width: 100%;
+}
+
+.emp-footer {
+  display: flex;
+  gap: var(--gt-space-4);
+  justify-content: space-between;
+  padding: var(--gt-space-3) var(--gt-space-6);
+  background-color: var(--gt-white);
+  border-top: 1px solid var(--gt-graphite-200);
+  font-size: var(--gt-fs-xs);
+  color: var(--gt-graphite-600);
+}
+
+.emp-page { display: grid; gap: var(--gt-space-4); }
+.emp-page__header { display: flex; align-items: center; justify-content: space-between; }
+.emp-filters { display: flex; gap: var(--gt-space-3); flex-wrap: wrap; }
+.emp-filters .ds-input { max-width: 280px; }
+.emp-pagination { display: flex; gap: var(--gt-space-3); align-items: center; justify-content: center; }
+
+.emp-form { display: grid; gap: var(--gt-space-4); }
+.emp-form__section {
+  border: 1px solid var(--gt-graphite-200);
+  border-radius: var(--gt-radius-md);
+  padding: var(--gt-space-4);
+  display: grid;
+  gap: var(--gt-space-2);
+  background-color: var(--gt-white);
+}
+.emp-form__actions { display: flex; gap: var(--gt-space-3); justify-content: flex-end; }
+
+.emp-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--gt-space-4);
+}
