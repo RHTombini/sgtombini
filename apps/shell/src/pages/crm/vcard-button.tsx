@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { downloadVcard } from './vcard';
+import './vcard.css';
 
 interface Props {
   employeeId: string;
