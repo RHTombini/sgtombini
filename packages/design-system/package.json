@@ -11,6 +11,10 @@
     "components.css",
     "print.css"
   ],
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "pdfjs-dist": "^4.6.82"
+  },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
