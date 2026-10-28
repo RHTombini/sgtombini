@@ -7,6 +7,7 @@ import '@sgt/design-system/tokens.css';
 import '@sgt/design-system/base.css';
 import '@sgt/design-system/components.css';
 import './styles/shell.css';
+import './pages/intranet/intranet-admin.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
