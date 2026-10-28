@@ -15,7 +15,6 @@
 }
 
 .doc-header__brand { display: flex; align-items: center; gap: var(--gt-space-3); }
-.doc-header__logo { height: 32px; width: auto; }
 .doc-header__module { font-weight: 600; }
 .doc-header__account { display: flex; align-items: center; gap: var(--gt-space-3); }
 .doc-header__user { font-size: var(--gt-fs-sm); color: var(--gt-graphite-600); }
