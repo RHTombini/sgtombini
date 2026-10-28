@@ -20,7 +20,7 @@ export function PrintLayout({ title, subtitle, children, onPrint }: PrintLayoutP
       </div>
 
       <div className="ds-print-header">
-        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" height={32} />
+        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="ds-logo" />
         <div>
           <strong>{title}</strong>
           {subtitle && <div>{subtitle}</div>}
