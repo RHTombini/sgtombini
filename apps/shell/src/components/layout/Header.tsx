@@ -9,6 +9,14 @@ export function Header() {
     ? 'Central de Aprovação'
     : location.pathname.startsWith('/colaboradores')
     ? 'Gestão de Colaboradores'
+    : location.pathname.startsWith('/crm')
+    ? 'CRM'
+    : location.pathname.startsWith('/qrcode')
+    ? 'QR Code'
+    : location.pathname.startsWith('/intranet')
+    ? 'Painel da Intranet'
+    : location.pathname.startsWith('/admin')
+    ? 'Perfis de Acesso'
     : 'SGT';
 
   const handleLogout = async () => {
@@ -22,7 +30,7 @@ export function Header() {
         <img
           src="/assets/brand/logo.svg"
           alt="Grupo Tombini"
-          className="shell-header__logo"
+          className="ds-logo"
         />
         <span className="shell-header__module">{moduleName}</span>
       </div>
