@@ -5,6 +5,7 @@ import { AccessDeniedPage } from '../pages/auth/AccessDeniedPage';
 import { NotFoundPage } from '../pages/errors/NotFoundPage';
 import { HomePage } from '../pages/HomePage';
 import { AuthGuard } from './AuthGuard';
+import { IntranetAdminRoutes } from '../pages/intranet/intranet-routes';
 
 export function App() {
   return (
@@ -20,6 +21,7 @@ export function App() {
         }
       >
         <Route index element={<HomePage />} />
+        {IntranetAdminRoutes()}
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
