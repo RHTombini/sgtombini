@@ -38,4 +38,5 @@ export async function route(request: Request, env: Env): Promise<Response> {
     );
   }
 
-  return withCors(response, request, env
+  return withCors(response, request, env);
+}
