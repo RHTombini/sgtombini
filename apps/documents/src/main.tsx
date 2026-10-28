@@ -6,6 +6,7 @@ import { AuthProvider } from './app/auth-context';
 import '@sgt/design-system/tokens.css';
 import '@sgt/design-system/base.css';
 import '@sgt/design-system/components.css';
+import '@sgt/design-system/src/styles-components.css';
 import '@sgt/design-system/print.css';
 import './styles/documents.css';
 
