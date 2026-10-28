@@ -20,6 +20,10 @@ const DEFAULT_MODULES: SidebarModule[] = [
   { to: '/colaboradores/ferias', label: 'Férias', roles: ['admin', 'rh', 'gestor', 'auditor'] },
   { to: '/documentos', label: 'Documentos', roles: ['admin', 'rh', 'gestor', 'auditor', 'consulta'] },
   { to: '/documentos/pendentes', label: 'Aprovações pendentes', roles: ['admin', 'rh', 'gestor', 'auditor'] },
+  { to: '/crm', label: 'CRM', roles: ['admin', 'rh', 'gestor', 'consulta'] },
+  { to: '/qrcode', label: 'QR Code', roles: ['admin', 'rh', 'gestor', 'consulta'] },
+  { to: '/intranet', label: 'Painel da intranet', roles: ['admin', 'rh'] },
+  { to: '/admin/perfis', label: 'Perfis de acesso', roles: ['admin'] },
 ];
 
 export function Sidebar({ userRole, modules = DEFAULT_MODULES, className }: SidebarProps) {
