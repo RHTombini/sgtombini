@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { employeeCreateSchema } from '@sgt/validation';
 import type { EmployeeCreateInput } from '@sgt/shared-types';
 import { employeesApi } from '../services/api';
+import { downloadVcard } from '../../../shell/src/pages/crm/vcard';
 
 interface Props {
   mode: 'create' | 'edit';
@@ -21,6 +22,7 @@ export function EmployeeFormPage({ mode }: Props) {
     corporateEmail: '',
     mobilePhone: '',
   });
+  const [addToAgenda, setAddToAgenda] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState(false);
 
@@ -62,6 +64,14 @@ export function EmployeeFormPage({ mode }: Props) {
         await employeesApi.create(parsed.data);
       } else if (id) {
         await employeesApi.update(id, parsed.data);
+      }
+      if (addToAgenda) {
+        downloadVcard({
+          fullName: parsed.data.fullName,
+          role: parsed.data.role,
+          email: parsed.data.corporateEmail ?? null,
+          phone: parsed.data.mobilePhone ?? null,
+        });
       }
       navigate('/colaboradores');
     } catch (err) {
@@ -112,6 +122,15 @@ export function EmployeeFormPage({ mode }: Props) {
 
           <label className="ds-label">Celular</label>
           <input className="ds-input" value={form.mobilePhone ?? ''} onChange={set('mobilePhone')} />
+
+          <label className="ds-label emp-checkbox">
+            <input
+              type="checkbox"
+              checked={addToAgenda}
+              onChange={(e) => setAddToAgenda(e.target.checked)}
+            />
+            Adicionar à agenda após salvar (gera arquivo .vcf)
+          </label>
         </div>
 
         {errors._form && <div className="ds-field-error">{errors._form}</div>}
