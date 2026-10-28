@@ -1,7 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
-
-const TOKEN_KEY = 'sgt.access_token';
-const IDENTITY_URL = import.meta.env.VITE_IDENTITY_URL as string;
+import React, { createContext, useContext, type ReactNode } from 'react';
 
 export interface AuthUser {
   id: string;
@@ -20,38 +17,15 @@ interface AuthContextValue {
 const AuthContext = createContext<AuthContextValue | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [token, setToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem(TOKEN_KEY);
-    if (!stored) {
-      setLoading(false);
-      return;
-    }
-    setToken(stored);
-    fetch(`${IDENTITY_URL}/v1/auth/me`, {
-      headers: { Authorization: `Bearer ${stored}` },
-    })
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((p: { data: AuthUser }) => setUser(p.data))
-      .catch(() => {
-        localStorage.removeItem(TOKEN_KEY);
-        setToken(null);
-      })
-      .finally(() => setLoading(false));
-  }, []);
-
-  const logout = () => {
-    localStorage.removeItem(TOKEN_KEY);
-    setToken(null);
-    setUser(null);
-    window.location.href = '/login';
-  };
-
   return (
-    <AuthContext.Provider value={{ user, loading, token, logout }}>
+    <AuthContext.Provider
+      value={{
+        user: null,
+        loading: false,
+        token: null,
+        logout: () => undefined,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
