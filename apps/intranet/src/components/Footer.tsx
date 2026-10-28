@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="intra-footer">
       <div className="intra-footer__brand">
-        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" height={40} />
+        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="ds-logo" />
         <p>Pessoas que constroem, histórias que conectam.</p>
       </div>
 
@@ -17,15 +17,9 @@ export function Footer() {
           <span className="intra-footer__icon intra-footer__icon--whatsapp" aria-hidden="true" />
           Fale com nosso RH
         </a>
-        <a href={linkedin} target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-        <a href={instagram} target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a>
-        <a href={site} target="_blank" rel="noopener noreferrer">
-          Site institucional
-        </a>
+        <a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href={instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href={site} target="_blank" rel="noopener noreferrer">Site institucional</a>
       </div>
 
       <div className="intra-footer__legal">
