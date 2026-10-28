@@ -4,7 +4,7 @@ export function Header() {
   return (
     <header className="intra-header">
       <div className="intra-header__brand">
-        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="intra-header__logo" />
+        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="ds-logo" />
         <span className="intra-header__name">Nossa Gente</span>
       </div>
       <a
