@@ -1,0 +1,38 @@
+.crm-page { display: grid; gap: var(--gt-space-4); }
+
+.crm-tabs {
+  display: flex;
+  gap: var(--gt-space-2);
+  border-bottom: 1px solid var(--gt-divider);
+}
+
+.crm-tab {
+  padding: var(--gt-space-2) var(--gt-space-4);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--gt-graphite-600);
+}
+
+.crm-tab--active {
+  color: var(--gt-green-700);
+  border-bottom-color: var(--gt-green-600);
+}
+
+.crm-panel { display: grid; gap: var(--gt-space-3); }
+
+.crm-filters {
+  display: flex;
+  gap: var(--gt-space-3);
+  flex-wrap: wrap;
+}
+.crm-filters .ds-input { max-width: 260px; }
+
+.crm-pagination {
+  display: flex;
+  gap: var(--gt-space-3);
+  align-items: center;
+  justify-content: center;
+}
