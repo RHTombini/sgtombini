@@ -27,7 +27,7 @@ export function LoginPage() {
   return (
     <div className="shell-login">
       <div className="shell-login__card ds-card">
-        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" height={40} />
+        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="ds-logo" />
         <h1>SGT — Sistema de Gestão Tombini</h1>
         <form onSubmit={handleSubmit}>
           <label className="ds-label" htmlFor="email">E-mail</label>
