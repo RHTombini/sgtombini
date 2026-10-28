@@ -20,11 +20,6 @@
   gap: var(--gt-space-3);
 }
 
-.intra-header__logo {
-  height: 36px;
-  width: auto;
-}
-
 .intra-header__name {
   font-weight: 600;
   color: var(--gt-graphite-800);
