@@ -1,0 +1,9 @@
+{
+  "mesReferencia": "2026-01",
+  "items": [
+    { "dia": 2, "mes": 1, "nomeApresentacao": "Ana" },
+    { "dia": 8, "mes": 1, "nomeApresentacao": "Carlos" },
+    { "dia": 15, "mes": 1, "nomeApresentacao": "Mariana" }
+  ],
+  "observacao": "Dados de exemplo. Substituir por lista real, com consentimento dos titulares. Apenas nome de apresentação, dia e mês."
+}
