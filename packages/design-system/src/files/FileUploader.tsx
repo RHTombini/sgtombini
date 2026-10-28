@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL as string,
-  import.meta.env.VITE_SUPABASE_ANON_KEY as string
+  (import.meta.env.VITE_SUPABASE_URL as string) || 'https://placeholder.supabase.co',
+  (import.meta.env.VITE_SUPABASE_ANON_KEY as string) || 'placeholder'
 );
 
 export interface FileUploaderProps {
