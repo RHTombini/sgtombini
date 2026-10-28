@@ -1,0 +1,6 @@
+.admin-page { display: grid; gap: var(--gt-space-4); }
+
+.admin-page__hint {
+  color: var(--gt-graphite-600);
+  font-size: var(--gt-fs-sm);
+}
