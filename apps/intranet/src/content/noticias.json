@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "id": "noticia-exemplo-1",
+      "categoria": "Comunicado interno",
+      "data": "2026-01-15",
+      "titulo": "Título da notícia (substituir por conteúdo real)",
+      "resumo": "Resumo curto da notícia. Este conteúdo é de exemplo e deve ser substituído pelo RH antes da publicação.",
+      "corpo": "Corpo completo da notícia. Substituir por conteúdo aprovado pelo RH.",
+      "imagem": null,
+      "autorizado": false
+    }
+  ]
+}
