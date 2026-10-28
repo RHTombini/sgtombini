@@ -1,6 +1,6 @@
+import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ModuleLayout } from '../components/layout/ModuleLayout';
-import { AuthGuard } from './AuthGuard';
 import { DocumentListPage } from '../pages/DocumentListPage';
 import { DocumentFormPage } from '../pages/DocumentFormPage';
 import { DocumentViewPage } from '../pages/DocumentViewPage';
@@ -10,14 +10,7 @@ import { DocumentDashboardPage } from '../pages/DocumentDashboardPage';
 export function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <AuthGuard>
-            <ModuleLayout />
-          </AuthGuard>
-        }
-      >
+      <Route path="/" element={<ModuleLayout />}>
         <Route index element={<Navigate to="documentos" replace />} />
         <Route path="documentos" element={<DocumentListPage />} />
         <Route path="documentos/novo" element={<DocumentFormPage />} />
