@@ -44,7 +44,6 @@ export async function parsePdf(file: File): Promise<ImportPreviewRow[]> {
 }
 
 function parsePdfTextLine(text: string, pageNumber: number): ImportPreviewRow {
-  // Heurística simples: extrai datas e e-mail, marca o restante como pendente.
   const birthMatch = text.match(/\b(\d{2}\/\d{2}\/\d{4})\b/);
   const emailMatch = text.match(/[\w.+-]+@[\w-]+\.[\w.]+/);
 
@@ -81,7 +80,7 @@ function parsePdfTextLine(text: string, pageNumber: number): ImportPreviewRow {
     },
   ];
 
-  return { sourceRowNumber: pageNumber, fields };
+  return { sourceRowNumber: pageNumber, fields, duplicateOfEmployeeId: null };
 }
 
 function toPreviewRow(row: Record<string, unknown>, sourceRowNumber: number): ImportPreviewRow {
@@ -95,5 +94,5 @@ function toPreviewRow(row: Record<string, unknown>, sourceRowNumber: number): Im
       requiresReview: !value,
     };
   });
-  return { sourceRowNumber, fields };
+  return { sourceRowNumber, fields, duplicateOfEmployeeId: null };
 }
