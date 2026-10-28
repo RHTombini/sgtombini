@@ -19,6 +19,7 @@ Este documento descreve como publicar o SGT e a intranet no Cloudflare, após to
 | `sgt-identity` | Worker | `workers/identity` | `npx wrangler deploy` | — |
 | `sgt-employees-api` | Worker | `workers/employees-api` | `npx wrangler deploy` | — |
 | `sgt-documents-api` | Worker | `workers/documents-api` | `npx wrangler deploy` | — |
+| `sgt-crm-api` | Worker | `workers/crm-api` | `npx wrangler deploy` | — |
 | `sgt-audit` | Worker | `workers/audit` | `npx wrangler deploy` | — |
 | `sgt-notifications` | Worker | `workers/notifications` | `npx wrangler deploy` | — |
 
@@ -49,26 +50,35 @@ Repita para cada app (`employees`, `documents`, `intranet`).
 4. Em **Settings → Variables and Secrets**, adicione os segredos:
    - `SUPABASE_URL`
    - `SUPABASE_ANON_KEY`
-   - `SUPABASE_SERVICE_ROLE_KEY` (apenas nos workers que precisam)
+   - `SUPABASE_SERVICE_ROLE_KEY` (apenas nos workers que precisam: identity, audit, notifications)
    - `AUDIT_INTERNAL_TOKEN`
    - `NOTIFICATIONS_INTERNAL_TOKEN`
 5. Clique em **Deploy**.
 
-Repita para cada worker.
+Repita para cada worker, incluindo `sgt-crm-api`.
 
 ## Ordem recomendada de deploy
 
-1. Workers primeiro: `identity`, `audit`, `notifications`, `employees-api`, `documents-api`.
+1. Workers primeiro: `identity`, `audit`, `notifications`, `employees-api`, `documents-api`, `crm-api`.
 2. Apps depois: `shell`, `employees`, `documents`, `intranet`.
 
-Isso porque os apps chamam os workers; se o app subir antes, as chamadas falham até o worker existir.
+## Configuração manual no Supabase (Auth Hook)
+
+Depois de rodar a migration `0010_user_roles_and_hook.sql`:
+
+1. Dashboard do Supabase → **Authentication → Hooks**.
+2. Selecionar **Custom Access Token**.
+3. Escolher `public.custom_access_token_hook`.
+4. Salvar.
+
+Sem esse passo, o JWT não carrega `user_role`.
 
 ## Segredos
 
-Nunca commitar segredos no GitHub. Todos os segredos são configurados no dashboard do Cloudflare (Variables and Secrets) ou via `wrangler secret put`.
+Nunca commitar segredos no GitHub. Todos configurados no dashboard do Cloudflare (Variables and Secrets).
 
 ## Observações
 
-- `pdfjs-dist` e `xlsx` são processados no frontend; o build dos apps é maior, mas os Workers permanecem leves.
+- `pdfjs-dist`, `xlsx` e `qrcode` são processados no frontend; o build dos apps é maior, mas os Workers permanecem leves.
 - Nenhum binário passa pelos Workers.
 - O Cloudflare Access da intranet será configurado à parte (ver `apps/intranet/README.md`).
