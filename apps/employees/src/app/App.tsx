@@ -1,6 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { ModuleLayout } from '../components/layout/ModuleLayout';
-import { AuthGuard } from './AuthGuard';
 import { EmployeeListPage } from '../pages/EmployeeListPage';
 import { EmployeeFormPage } from '../pages/EmployeeFormPage';
 import { EmployeeViewPage } from '../pages/EmployeeViewPage';
@@ -10,14 +9,7 @@ import { VacationDashboardPage } from '../pages/VacationDashboardPage';
 export function App() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <AuthGuard>
-            <ModuleLayout />
-          </AuthGuard>
-        }
-      >
+      <Route path="/" element={<ModuleLayout />}>
         <Route index element={<Navigate to="colaboradores" replace />} />
         <Route path="colaboradores" element={<EmployeeListPage />} />
         <Route path="colaboradores/novo" element={<EmployeeFormPage mode="create" />} />
