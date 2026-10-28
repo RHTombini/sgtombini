@@ -1,0 +1,74 @@
+# Deploy no Cloudflare
+
+Este documento descreve como publicar o SGT e a intranet no Cloudflare, após todos os arquivos estarem no GitHub.
+
+## Pré-requisitos
+
+- Conta Cloudflare (plano gratuito).
+- Repositório `RHTombini/sgtombini` no GitHub.
+- Projeto Supabase criado (banco, auth, storage) — necessário apenas para o SGT funcionar; a intranet pode ir ao ar antes.
+
+## Visão geral dos projetos
+
+| Projeto | Tipo | Root directory | Build command | Output |
+|---|---|---|---|---|
+| `sgt-shell` | Pages | `apps/shell` | `pnpm install && pnpm --filter @sgt/shell build` | `dist` |
+| `sgt-employees` | Pages | `apps/employees` | `pnpm install && pnpm --filter @sgt/employees build` | `dist` |
+| `sgt-documents` | Pages | `apps/documents` | `pnpm install && pnpm --filter @sgt/documents build` | `dist` |
+| `sgt-intranet` | Pages | `apps/intranet` | `pnpm install && pnpm --filter @sgt/intranet build` | `dist` |
+| `sgt-identity` | Worker | `workers/identity` | `npx wrangler deploy` | — |
+| `sgt-employees-api` | Worker | `workers/employees-api` | `npx wrangler deploy` | — |
+| `sgt-documents-api` | Worker | `workers/documents-api` | `npx wrangler deploy` | — |
+| `sgt-audit` | Worker | `workers/audit` | `npx wrangler deploy` | — |
+| `sgt-notifications` | Worker | `workers/notifications` | `npx wrangler deploy` | — |
+
+## Passo a passo — Pages
+
+1. No dashboard do Cloudflare, acesse **Workers & Pages → Create → Pages → Connect to Git**.
+2. Selecione o repositório `RHTombini/sgtombini`.
+3. Preencha:
+   - **Project name:** `sgt-shell` (ou o nome do app).
+   - **Production branch:** `main`.
+   - **Framework preset:** Vite.
+   - **Root directory:** `apps/shell` (ou o app correspondente).
+   - **Build command:** `pnpm install && pnpm --filter @sgt/shell build`.
+   - **Build output directory:** `dist`.
+4. Em **Environment variables**, adicione as variáveis do app (ver `.env.example` de cada app).
+5. Clique em **Save and Deploy**.
+
+Repita para cada app (`employees`, `documents`, `intranet`).
+
+## Passo a passo — Workers
+
+1. No dashboard do Cloudflare, acesse **Workers & Pages → Create → Worker → Connect to Git**.
+2. Selecione o repositório `RHTombini/sgtombini`.
+3. Preencha:
+   - **Project name:** `sgt-identity` (ou o worker correspondente).
+   - **Root directory:** `workers/identity`.
+   - **Deploy command:** `npx wrangler deploy`.
+4. Em **Settings → Variables and Secrets**, adicione os segredos:
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY` (apenas nos workers que precisam)
+   - `AUDIT_INTERNAL_TOKEN`
+   - `NOTIFICATIONS_INTERNAL_TOKEN`
+5. Clique em **Deploy**.
+
+Repita para cada worker.
+
+## Ordem recomendada de deploy
+
+1. Workers primeiro: `identity`, `audit`, `notifications`, `employees-api`, `documents-api`.
+2. Apps depois: `shell`, `employees`, `documents`, `intranet`.
+
+Isso porque os apps chamam os workers; se o app subir antes, as chamadas falham até o worker existir.
+
+## Segredos
+
+Nunca commitar segredos no GitHub. Todos os segredos são configurados no dashboard do Cloudflare (Variables and Secrets) ou via `wrangler secret put`.
+
+## Observações
+
+- `pdfjs-dist` e `xlsx` são processados no frontend; o build dos apps é maior, mas os Workers permanecem leves.
+- Nenhum binário passa pelos Workers.
+- O Cloudflare Access da intranet será configurado à parte (ver `apps/intranet/README.md`).
