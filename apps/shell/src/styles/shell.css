@@ -20,11 +20,6 @@
   gap: var(--gt-space-3);
 }
 
-.shell-header__logo {
-  height: 32px;
-  width: auto;
-}
-
 .shell-header__module {
   font-weight: 600;
   color: var(--gt-graphite-800);
@@ -110,4 +105,30 @@
 .shell-loading {
   padding: var(--gt-space-8);
   text-align: center;
+}
+
+.shell-content-editor {
+  display: grid;
+  gap: var(--gt-space-4);
+  max-width: 900px;
+}
+
+.shell-content-editor__hint {
+  color: var(--gt-graphite-600);
+  font-size: var(--gt-fs-sm);
+}
+
+.shell-content-editor__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shell-editor-list {
+  display: grid;
+  gap: var(--gt-space-4);
+}
+
+.shell-editor-item {
+  display: grid;
+  gap: var(--gt-space-2);
 }
