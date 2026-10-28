@@ -89,4 +89,149 @@
 
 .intra-message__signature {
   font-weight: 600;
- 
+  color: var(--gt-green-700);
+  text-align: right;
+}
+
+.intra-news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--gt-space-4);
+}
+
+.intra-news {
+  display: grid;
+  gap: var(--gt-space-2);
+}
+
+.intra-news__date {
+  font-size: var(--gt-fs-xs);
+  color: var(--gt-graphite-600);
+}
+
+.intra-news__more {
+  cursor: pointer;
+  color: var(--gt-green-700);
+  font-weight: 600;
+}
+
+.intra-birthdays {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--gt-space-2);
+}
+
+.intra-birthday {
+  display: flex;
+  gap: var(--gt-space-2);
+  padding: var(--gt-space-2);
+  background-color: var(--gt-white);
+  border: 1px solid var(--gt-divider);
+  border-radius: var(--gt-radius-md);
+}
+
+.intra-birthday__date {
+  font-weight: 600;
+  color: var(--gt-green-700);
+}
+
+.intra-note {
+  font-size: var(--gt-fs-xs);
+  color: var(--gt-graphite-600);
+  margin-top: var(--gt-space-3);
+}
+
+.intra-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--gt-space-4);
+}
+
+.intra-interview {
+  display: grid;
+  gap: var(--gt-space-2);
+}
+
+.intra-interview__role {
+  color: var(--gt-graphite-600);
+}
+
+.intra-campaign {
+  display: grid;
+  gap: var(--gt-space-2);
+  padding: var(--gt-space-3);
+  background-color: var(--gt-white);
+  border-radius: var(--gt-radius-md);
+  border-top: 3px solid var(--gt-green-600);
+}
+
+.intra-campaign--highlight {
+  border-top-width: 6px;
+  margin-bottom: var(--gt-space-4);
+}
+
+.intra-campaigns {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--gt-space-3);
+}
+
+.intra-campaign__month {
+  font-size: var(--gt-fs-xs);
+  text-transform: uppercase;
+  color: var(--gt-graphite-600);
+}
+
+.intra-footer {
+  background-color: var(--gt-graphite-800);
+  color: var(--gt-white);
+  padding: var(--gt-space-8) var(--gt-space-6);
+  display: grid;
+  gap: var(--gt-space-4);
+}
+
+.intra-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--gt-space-3);
+}
+
+.intra-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gt-space-4);
+}
+
+.intra-footer__links a {
+  color: var(--gt-white);
+  text-decoration: none;
+}
+
+.intra-footer__links a:hover {
+  text-decoration: underline;
+}
+
+.intra-footer__icon--whatsapp {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background-color: #25D366;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.intra-footer__legal {
+  display: flex;
+  gap: var(--gt-space-4);
+  font-size: var(--gt-fs-xs);
+  color: var(--gt-divider);
+}
+
+@media (max-width: 720px) {
+  .intra-hero {
+    grid-template-columns: 1fr;
+  }
+}
