@@ -1,0 +1,25 @@
+.shell-content-editor {
+  display: grid;
+  gap: var(--gt-space-4);
+  max-width: 900px;
+}
+
+.shell-content-editor__hint {
+  color: var(--gt-graphite-600);
+  font-size: var(--gt-fs-sm);
+}
+
+.shell-content-editor__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.shell-editor-list {
+  display: grid;
+  gap: var(--gt-space-4);
+}
+
+.shell-editor-item {
+  display: grid;
+  gap: var(--gt-space-2);
+}
