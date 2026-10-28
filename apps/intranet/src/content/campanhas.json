@@ -1,0 +1,17 @@
+{
+  "items": [
+    { "mes": 1, "titulo": "Janeiro Branco", "texto": "Cuidar da saúde mental é um ato de coragem.", "cor": "#FFFFFF" },
+    { "mes": 2, "titulo": "Respeito e convivência", "texto": "A boa convivência começa no respeito.", "cor": "#65A70A" },
+    { "mes": 3, "titulo": "Dia Internacional da Mulher", "texto": "Celebramos as mulheres que constroem nossa história.", "cor": "#E94F87" },
+    { "mes": 4, "titulo": "Abril Verde e conscientização sobre autismo", "texto": "Segurança e inclusão caminham juntas.", "cor": "#65A70A" },
+    { "mes": 5, "titulo": "Maio Amarelo", "texto": "No trânsito, escolha a vida.", "cor": "#E9A23B" },
+    { "mes": 6, "titulo": "Meio ambiente", "texto": "Pequenas atitudes transformam o futuro.", "cor": "#3F6908" },
+    { "mes": 7, "titulo": "Prevenção de acidentes", "texto": "Segurança é responsabilidade de todos.", "cor": "#65A70A" },
+    { "mes": 8, "titulo": "Combate à violência contra a mulher", "texto": "Respeito não tem exceção.", "cor": "#E94F87" },
+    { "mes": 9, "titulo": "Setembro Amarelo", "texto": "Falar sobre saúde mental salva vidas.", "cor": "#E9A23B" },
+    { "mes": 10, "titulo": "Outubro Rosa", "texto": "Prevenção é o melhor caminho.", "cor": "#E94F87" },
+    { "mes": 11, "titulo": "Novembro Azul", "texto": "Cuide-se. O cuidado é um ato de coragem.", "cor": "#164E82" },
+    { "mes": 12, "titulo": "Dezembro Vermelho", "texto": "Prevenção e informação sempre.", "cor": "#B42318" }
+  ],
+  "observacao": "Textos de exemplo. Substituir pelo conteúdo aprovado pelo RH."
+}
