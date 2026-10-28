@@ -3,7 +3,6 @@
 
 create extension if not exists "pgcrypto";
 
--- Função para atualizar updated_at automaticamente
 create or replace function public.set_updated_at()
 returns trigger
 language plpgsql
@@ -14,19 +13,22 @@ begin
 end;
 $$;
 
--- Função para extrair o role do JWT (app_metadata.role)
+-- Lê o papel do JWT:
+-- 1) user_role (injetado pela Auth Hook 0010)
+-- 2) app_metadata.role (fallback, usado pelo Admin API)
+-- 3) 'consulta' (padrão)
 create or replace function public.jwt_role()
 returns text
 language sql
 stable
 as $$
   select coalesce(
+    nullif(current_setting('request.jwt.claims', true)::jsonb ->> 'user_role', ''),
     nullif(current_setting('request.jwt.claims', true)::jsonb -> 'app_metadata' ->> 'role', ''),
     'consulta'
   );
 $$;
 
--- Função para extrair o user_id do JWT (sub)
 create or replace function public.jwt_sub()
 returns uuid
 language sql
