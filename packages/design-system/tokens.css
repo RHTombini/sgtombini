@@ -48,7 +48,7 @@
   --gt-shadow-md: 0 4px 12px rgba(79, 72, 74, 0.12);
 
   /* Layout */
-  --gt-header-height: 56px;
+  --gt-header-height: 96px;
   --gt-sidebar-width: 240px;
   --gt-content-max: 1280px;
 }
