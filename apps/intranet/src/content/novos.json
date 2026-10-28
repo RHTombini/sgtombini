@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "nomeApresentacao": "Nome",
+      "funcao": "Função ou área",
+      "foto": null,
+      "autorizado": false
+    }
+  ],
+  "observacao": "Dados de exemplo. Substituir por conteúdo real, com autorização."
+}
