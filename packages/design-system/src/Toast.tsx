@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import React, { useEffect, type ReactNode } from 'react';
 
 export type ToastVariant = 'success' | 'error' | 'info';
 
