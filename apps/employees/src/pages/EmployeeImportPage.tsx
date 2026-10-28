@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ImportPreviewRow } from '@sgt/shared-types';
+import { ImportPreview } from '@sgt/design-system';
 import { parseExcel, parsePdf } from '../services/file-parser';
-import { ImportPreview } from '@sgt/design-system/src/files/ImportPreview';
 
 export function EmployeeImportPage() {
   const [rows, setRows] = useState<ImportPreviewRow[] | null>(null);
