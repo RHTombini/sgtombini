@@ -11,7 +11,7 @@
   justify-content: space-between;
   padding: 0 var(--gt-space-6);
   background-color: var(--gt-white);
-  border-bottom: 1px solid var(--gt-graphite-200);
+  border-bottom: 1px solid var(--gt-divider);
 }
 
 .emp-header__brand { display: flex; align-items: center; gap: var(--gt-space-3); }
@@ -37,7 +37,7 @@
   justify-content: space-between;
   padding: var(--gt-space-3) var(--gt-space-6);
   background-color: var(--gt-white);
-  border-top: 1px solid var(--gt-graphite-200);
+  border-top: 1px solid var(--gt-divider);
   font-size: var(--gt-fs-xs);
   color: var(--gt-graphite-600);
 }
@@ -50,7 +50,7 @@
 
 .emp-form { display: grid; gap: var(--gt-space-4); }
 .emp-form__section {
-  border: 1px solid var(--gt-graphite-200);
+  border: 1px solid var(--gt-divider);
   border-radius: var(--gt-radius-md);
   padding: var(--gt-space-4);
   display: grid;
