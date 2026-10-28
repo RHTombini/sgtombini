@@ -1,0 +1,16 @@
+{
+  "nomeApresentacao": "Nome",
+  "funcao": "Função",
+  "foto": null,
+  "apresentacao": "Pequena apresentação do entrevistado.",
+  "perguntas": [
+    { "pergunta": "Como você gosta de ser chamado?", "resposta": "" },
+    { "pergunta": "Qual atividade desenvolve junto à Tombini?", "resposta": "" },
+    { "pergunta": "O que mais gosta no seu trabalho?", "resposta": "" },
+    { "pergunta": "O que gosta de fazer nas horas vagas?", "resposta": "" },
+    { "pergunta": "Qual aprendizado gostaria de compartilhar?", "resposta": "" },
+    { "pergunta": "O que significa trabalhar em equipe para você?", "resposta": "" }
+  ],
+  "autorizado": false,
+  "observacao": "Preencher com entrevista real, com aprovação prévia do entrevistado."
+}
