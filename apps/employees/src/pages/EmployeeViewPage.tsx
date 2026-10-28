@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import type { Employee } from '@sgt/shared-types';
+import { PrintLayout } from '@sgt/design-system';
 import { employeesApi } from '../services/api';
-import { PrintLayout } from '@sgt/design-system/src/print/PrintLayout';
 import { useAuth } from '../app/auth-context';
 
 export function EmployeeViewPage() {
