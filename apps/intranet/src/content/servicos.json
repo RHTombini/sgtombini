@@ -1,0 +1,10 @@
+{
+  "itens": [
+    {
+      "titulo": "Atividade ou serviço (substituir)",
+      "descricao": "Descrição da atividade. Não inventar serviços, clientes, certificações ou resultados.",
+      "imagem": null,
+      "autorizado": false
+    }
+  ]
+}
