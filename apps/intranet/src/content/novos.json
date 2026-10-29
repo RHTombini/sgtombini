@@ -1,11 +1,25 @@
 {
   "items": [
     {
-      "nomeApresentacao": "Nome",
-      "funcao": "Função ou área",
-      "foto": null,
-      "autorizado": false
+      "nome": "Lucas",
+      "funcao": "Operação",
+      "tipoVinculo": "Colaborador",
+      "foto": "/assets/people/lucas.jpg",
+      "autorizado": true
+    },
+    {
+      "nome": "Mariana",
+      "funcao": "Administrativo",
+      "tipoVinculo": "Colaborador",
+      "foto": "/assets/people/mariana.jpg",
+      "autorizado": true
+    },
+    {
+      "nome": "André",
+      "funcao": "Manutenção",
+      "tipoVinculo": "Prestador PJ",
+      "foto": "/assets/people/andre.jpg",
+      "autorizado": true
     }
-  ],
-  "observacao": "Dados de exemplo. Substituir por conteúdo real, com autorização."
+  ]
 }
