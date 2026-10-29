@@ -73,6 +73,19 @@
   gap: var(--gt-space-3);
 }
 
+.shell-login__logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--gt-space-2);
+}
+
+.shell-login__logo img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .shell-login__card form {
   display: grid;
   gap: var(--gt-space-3);
