@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import type { CrmTab, Person, Supplier } from './crm-types';
 import { crmClient } from './crm-client';
 import './crm.css';
@@ -42,9 +42,11 @@ function PeopleTab() {
   const [role, setRole] = useState('');
   const [page, setPage] = useState(1);
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
   const pageSize = 20;
 
   useEffect(() => {
+    setLoading(true);
     setError(null);
     crmClient
       .listPeople({ search, state, role, page, pageSize })
@@ -52,7 +54,8 @@ function PeopleTab() {
         setItems(r.items);
         setTotal(r.total);
       })
-      .catch((e) => setError(e.message));
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false));
   }, [search, state, role, page]);
 
   return (
@@ -102,6 +105,9 @@ function PeopleTab() {
         </tbody>
       </table>
 
+      {loading && <p>Carregando…</p>}
+      {!loading && items.length === 0 && <p>Nenhum registro encontrado.</p>}
+
       <div className="crm-pagination">
         <button className="ds-button ds-button--secondary" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>Anterior</button>
         <span>Página {page} de {Math.max(1, Math.ceil(total / pageSize))}</span>
@@ -115,13 +121,16 @@ function SuppliersTab() {
   const [items, setItems] = useState<Supplier[]>([]);
   const [search, setSearch] = useState('');
   const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     setError(null);
     crmClient
       .listSuppliers({ search, page: 1, pageSize: 100 })
       .then((r) => setItems(r.items))
-      .catch((e) => setError(e.message));
+      .catch((e) => setError(e.message))
+      .finally(() => setLoading(false));
   }, [search]);
 
   return (
@@ -157,6 +166,7 @@ function SuppliersTab() {
           ))}
         </tbody>
       </table>
+      {loading && <p>Carregando…</p>}
     </div>
   );
 }
