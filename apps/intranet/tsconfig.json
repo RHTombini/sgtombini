@@ -13,8 +13,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "types": ["vite/client"],
     "paths": {
-      "@sgt/shared-types": ["../../packages/shared-types/src/index.ts"],
       "@sgt/design-system": ["../../packages/design-system/src/index.ts"]
     }
   },
