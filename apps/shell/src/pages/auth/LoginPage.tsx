@@ -1,33 +1,25 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../app/auth-context';
+import React, { useState } from 'react';
 
 export function LoginPage() {
-  const { login } = useAuth();
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    try {
-      await login(email, password);
-      navigate('/');
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Falha no login');
-    } finally {
-      setBusy(false);
-    }
+    setError('O login será habilitado quando o Supabase e o Worker de identidade estiverem configurados.');
+    setBusy(false);
   };
 
   return (
     <div className="shell-login">
       <div className="shell-login__card ds-card">
-        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="ds-logo" />
+        <div className="shell-login__logo">
+          <img src="/assets/brand/logo-sgt.svg" alt="SGT" />
+        </div>
         <h1>SGT — Sistema de Gestão Tombini</h1>
         <form onSubmit={handleSubmit}>
           <label className="ds-label" htmlFor="email">E-mail</label>
