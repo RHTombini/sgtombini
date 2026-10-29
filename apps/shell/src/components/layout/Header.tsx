@@ -1,8 +1,12 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../app/auth-context';
 
 export function Header() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const location = useLocation();
+  
   const moduleName = location.pathname.startsWith('/crm')
     ? 'CRM'
     : location.pathname.startsWith('/qrcode')
@@ -13,12 +17,25 @@ export function Header() {
     ? 'Perfis de Acesso'
     : 'SGT';
 
+  const handleLogout = async () => {
+    await logout();
+    navigate('/login');
+  };
+
   return (
     <header className="shell-header">
       <div className="shell-header__brand">
         <img src="/assets/brand/logo-sgt.svg" alt="SGT" className="ds-logo" />
         <span className="shell-header__module">{moduleName}</span>
       </div>
+      {user && (
+        <div className="shell-header__account">
+          <span className="shell-header__user">{user.name}</span>
+          <button className="ds-button ds-button--ghost" onClick={handleLogout}>
+            Sair
+          </button>
+        </div>
+      )}
     </header>
   );
 }
