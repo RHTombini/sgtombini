@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header className="shell-header">
       <div className="shell-header__brand">
-        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="ds-logo" />
+        <img src="/assets/brand/logo-sgt.svg" alt="SGT" className="ds-logo" />
         <span className="shell-header__module">{moduleName}</span>
       </div>
     </header>
