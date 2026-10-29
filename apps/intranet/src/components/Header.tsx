@@ -1,20 +1,20 @@
-export function Header() {
-  const sgtUrl = import.meta.env.VITE_SGT_URL as string;
+import React from 'react';
 
+export function Header() {
   return (
     <header className="intra-header">
       <div className="intra-header__brand">
-        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="ds-logo" />
-        <span className="intra-header__name">Nossa Gente</span>
+        <img src="/assets/brand/logo.svg" alt="Grupo Tombini" className="intra-header__logo" />
+        <div className="intra-header__text">
+          <span className="intra-header__name">TOMBINI</span>
+          <span className="intra-header__slogan">PESSOAS QUE CONSTRÓEM</span>
+        </div>
       </div>
-      <a
-        className="intra-header__cta ds-button ds-button--primary"
-        href={sgtUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Acessar Sistema de Gestão Tombini
-      </a>
+      <div className="intra-header__tagline">
+        <span>Nossa gente,</span>
+        <span>segue construindo.</span>
+        <div className="intra-header__line"></div>
+      </div>
     </header>
   );
 }
