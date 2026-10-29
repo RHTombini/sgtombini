@@ -5,9 +5,7 @@ export function Hero() {
 
   return (
     <section className="intra-hero">
-      <div className="intra-hero__bg">
-        {/* A imagem de fundo será controlada pelo CSS */}
-      </div>
+      <div className="intra-hero__bg"></div>
       <div className="intra-hero__content">
         <div className="intra-hero__text">
           <p className="intra-hero__welcome">BEM-VINDO(A) À NOSSA</p>
