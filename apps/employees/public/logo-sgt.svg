@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="480" viewBox="0 0 1600 480" role="img" aria-labelledby="title desc">
+<title id="title">SGT — Sistema de Gestão Tombini</title>
+<desc id="desc">Logotipo vetorial verde e grafite com símbolo botânico. Fundo transparente.</desc>
+<defs>
+<style>
+.green{fill:#39A935}.dark{fill:#3E3E3E}
+.word{font-family:Montserrat,Aptos,Arial,sans-serif;font-weight:800}
+.sub{font-family:Montserrat,Aptos,Arial,sans-serif;font-weight:600}
+</style>
+</defs>
+<!-- Emblema vetorial -->
+<g transform="translate(24 22)">
+  <circle class="green" cx="190" cy="208" r="174"/>
+  <path class="dark" d="M55 105C27 145 12 195 24 246c13 61 61 111 142 132V254c-2-24-17-43-42-62-35-27-59-55-69-87Z"/>
+  <!-- Negative-space stem and leaves -->
+  <path fill="#fff" d="M65 66c51 9 91 34 111 72 11 20 15 42 14 65-13-30-33-52-57-72C106 110 82 89 65 66Z"/>
+  <path fill="#fff" d="M65 66c13 40 39 73 70 99 29 24 46 51 49 91 7-38 23-70 49-95 20-19 43-31 67-34 1 27-12 51-33 73-20 21-46 38-66 55v123h-29V254c-3-24-17-43-42-62-35-27-59-55-65-126Z"/>
+  <!-- Crisp green inner sprout -->
+  <path class="green" d="M111 112c28 22 48 49 60 80 7 18 10 35 10 52-9-28-25-53-45-73-13-14-21-34-25-59Z"/>
+</g>
+<rect class="green" x="430" y="94" width="8" height="288" rx="4"/>
+<g class="word" font-size="246" letter-spacing="-8">
+  <text x="482" y="284" class="dark">S</text>
+  <text x="660" y="284" class="green">G</text>
+  <text x="866" y="284" class="dark">T</text>
+</g>
+<text x="490" y="360" class="sub" font-size="55" letter-spacing="-1.2"><tspan class="dark">Sistema de Gestão </tspan><tspan class="green">Tombini</tspan></text>
+</svg>
