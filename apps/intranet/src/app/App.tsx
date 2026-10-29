@@ -1,6 +1,6 @@
+import React from 'react';
 import { Header } from '../components/Header';
 import { Hero } from '../components/Hero';
-import { LeadershipMessage } from '../components/LeadershipMessage';
 import { NewsSection } from '../components/NewsSection';
 import { BirthdaySection } from '../components/BirthdaySection';
 import { NewPeopleSection } from '../components/NewPeopleSection';
@@ -15,11 +15,26 @@ export function App() {
       <Header />
       <main>
         <Hero />
-        <LeadershipMessage />
         <NewsSection />
-        <BirthdaySection />
-        <NewPeopleSection />
-        <EmployeeInterview />
+        
+        {/* Seção Nossa Gente envolvida em um container */}
+        <section className="intra-section">
+          <div className="intra-container">
+            <div className="intra-section__header">
+              <h2 className="intra-section__title">
+                <svg className="intra-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                NOSSA GENTE
+              </h2>
+              <p className="intra-section__subtitle">Valorizamos as pessoas que fazem a Tombini acontecer todos os dias.</p>
+            </div>
+            <div className="intra-cards-grid">
+              <BirthdaySection />
+              <NewPeopleSection />
+              <EmployeeInterview />
+            </div>
+          </div>
+        </section>
+
         <ServicesSection />
         <CampaignSection />
       </main>
