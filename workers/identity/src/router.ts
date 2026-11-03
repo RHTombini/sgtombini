@@ -18,11 +18,12 @@ export async function route(request: Request, env: Env): Promise<Response> {
   if (method === 'GET' && path === '/health') {
     response = await handleHealth();
   } else if (method === 'POST' && path === '/v1/auth/login') {
-    response = await handleLogin(request, env);
+    // Removido o 'env' da chamada, pois a função handleLogin não recebe mais
+    response = await handleLogin(request);
   } else if (method === 'POST' && path === '/v1/auth/refresh') {
-    response = await handleRefresh(request, env);
+    response = await handleRefresh(request);
   } else if (method === 'POST' && path === '/v1/auth/logout') {
-    response = await handleLogout(request, env);
+    response = await handleLogout(request);
   } else if (method === 'GET' && path === '/v1/auth/me') {
     response = await handleMe(request, env);
   } else if (method === 'GET' && path === '/v1/admin/users') {
