@@ -16,9 +16,19 @@ export interface SidebarProps {
 
 const DEFAULT_MODULES: SidebarModule[] = [
   { to: '/', label: 'Início', roles: ['admin', 'rh', 'gestor', 'auditor', 'consulta'], end: true },
+  
+  // Módulos de RH
+  { to: '/rh', label: 'Dashboard RH', roles: ['admin', 'rh', 'gestor', 'auditor'] },
+  { to: '/rh/atestados', label: 'Atestados', roles: ['admin', 'rh'] },
+  { to: '/rh/absenteismo', label: 'Absenteísmo', roles: ['admin', 'rh', 'gestor'] },
+  { to: '/rh/recrutamento', label: 'Recrutamento', roles: ['admin', 'rh', 'gestor'] },
   { to: '/colaboradores', label: 'Colaboradores', roles: ['admin', 'rh', 'gestor', 'auditor', 'consulta'] },
-  { to: '/colaboradores/importar', label: 'Importar colaboradores', roles: ['admin', 'rh'] },
-  { to: '/colaboradores/ferias', label: 'Férias', roles: ['admin', 'rh', 'gestor', 'auditor'] },
+  
+  // Módulo SMS
+  { to: '/sms', label: 'Dashboard SMS', roles: ['admin', 'rh', 'gestor', 'auditor'] },
+  { to: '/sms/exames', label: 'Exames Periódicos', roles: ['admin', 'rh'] },
+  
+  // Outros módulos
   { to: '/documentos', label: 'Documentos', roles: ['admin', 'rh', 'gestor', 'auditor', 'consulta'] },
   { to: '/documentos/pendentes', label: 'Aprovações pendentes', roles: ['admin', 'rh', 'gestor', 'auditor'] },
   { to: '/crm', label: 'CRM', roles: ['admin', 'rh', 'gestor', 'consulta'] },
