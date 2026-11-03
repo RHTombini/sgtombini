@@ -5,7 +5,7 @@ compatibility_flags = ["nodejs_compat"]
 
 [vars]
 ENVIRONMENT = "development"
-ALLOWED_ORIGINS = "http://localhost:5173,https://sgtombini.pages.dev"
+ALLOWED_ORIGINS = "https://sgt-shell.pages.dev,http://localhost:5173"
 
 # Segredos (configurar no dashboard do Cloudflare, NÃO aqui):
 # SUPABASE_URL
