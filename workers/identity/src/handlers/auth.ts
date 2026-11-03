@@ -15,27 +15,44 @@ export async function handleLogin(request: Request, env: Env): Promise<Response>
     return json({ error: { code: 'INVALID_INPUT', message: 'Dados inválidos' } }, 400);
   }
 
-  const supabase = createSupabaseClient(env);
-  const { data, error } = await supabase.auth.signInWithPassword(parsed.data);
+  try {
+    const supabase = createSupabaseClient(env);
+    const { data, error } = await supabase.auth.signInWithPassword(parsed.data);
 
-  if (error || !data.session) {
+    if (error) {
+      console.error('Supabase login error:', error);
+      return json(
+        { error: { code: 'AUTH_FAILED', message: error.message } },
+        401
+      );
+    }
+
+    if (!data.session) {
+      console.error('Supabase login: no session returned');
+      return json(
+        { error: { code: 'AUTH_FAILED', message: 'Sessão não retornada' } },
+        401
+      );
+    }
+
+    return json({
+      data: {
+        accessToken: data.session.access_token,
+        refreshToken: data.session.refresh_token,
+        expiresAt: data.session.expires_at,
+        user: {
+          id: data.user?.id,
+          email: data.user?.email,
+        },
+      },
+    });
+  } catch (err) {
+    console.error('Worker login exception:', err);
     return json(
-      { error: { code: 'AUTH_FAILED', message: 'Credenciais inválidas' } },
-      401
+      { error: { code: 'INTERNAL_ERROR', message: 'Erro interno no login' } },
+      500
     );
   }
-
-  return json({
-    data: {
-      accessToken: data.session.access_token,
-      refreshToken: data.session.refresh_token,
-      expiresAt: data.session.expires_at,
-      user: {
-        id: data.user?.id,
-        email: data.user?.email,
-      },
-    },
-  });
 }
 
 export async function handleRefresh(request: Request, env: Env): Promise<Response> {
