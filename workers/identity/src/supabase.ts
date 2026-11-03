@@ -1,3 +1,4 @@
+// Versão 3 - Diagnóstico
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import type { Env } from './env';
 
