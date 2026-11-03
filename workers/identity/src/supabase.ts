@@ -1,11 +1,9 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import { env } from 'cloudflare:workers';
 import type { Env } from './env';
 
 export function createSupabaseClient(_env: Env): SupabaseClient {
-  // Lê diretamente do módulo global do Cloudflare, que é a forma oficial
-  const url = env.SUPABASE_URL;
-  const key = env.SUPABASE_ANON_KEY;
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_ANON_KEY;
 
   if (!url || !key) {
     throw new Error(`Configuração ausente: URL=${!!url}, KEY=${!!key}`);
@@ -22,8 +20,8 @@ export function createSupabaseClient(_env: Env): SupabaseClient {
 }
 
 export function createSupabaseAdmin(_env: Env): SupabaseClient {
-  const url = env.SUPABASE_URL;
-  const key = env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !key) {
     throw new Error(`Configuração ausente: URL=${!!url}, SERVICE_ROLE=${!!key}`);
