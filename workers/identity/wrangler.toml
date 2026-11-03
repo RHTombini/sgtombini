@@ -1,17 +1,11 @@
 name = "sgt-identity"
 main = "src/index.ts"
-compatibility_date = "2024-09-23"
+compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
 ENVIRONMENT = "development"
 ALLOWED_ORIGINS = "https://sgt-shell.pages.dev,http://localhost:5173"
-
-# Segredos (configurar no dashboard do Cloudflare, NÃO aqui):
-# SUPABASE_URL
-# SUPABASE_ANON_KEY
-# SUPABASE_SERVICE_ROLE_KEY
-# JWT_SECRET
 
 [observability]
 enabled = true
