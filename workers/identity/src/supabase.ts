@@ -6,9 +6,6 @@ export function createSupabaseClient(env: Env): SupabaseClient {
     auth: { persistSession: false, autoRefreshToken: false },
     global: {
       headers: {
-        // A chave sb_publishable_... NÃO é um JWT. Ela deve ir apenas no cabeçalho 'apikey'.
-        // O SDK por padrão tenta colocar no 'Authorization', o que causa o erro 500.
-        // Esta configuração força o uso correto.
         apikey: env.SUPABASE_ANON_KEY,
       },
     },
