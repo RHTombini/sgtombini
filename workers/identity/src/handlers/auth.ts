@@ -48,8 +48,9 @@ export async function handleLogin(request: Request, env: Env): Promise<Response>
     });
   } catch (err) {
     console.error('Worker login exception:', err);
+    const message = err instanceof Error ? err.message : 'Erro interno no login';
     return json(
-      { error: { code: 'INTERNAL_ERROR', message: 'Erro interno no login' } },
+      { error: { code: 'INTERNAL_ERROR', message } },
       500
     );
   }
