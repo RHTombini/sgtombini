@@ -58,6 +58,7 @@
   color: var(--gt-graphite-600);
 }
 
+/* --- TELA DE LOGIN --- */
 .shell-login {
   min-height: 100vh;
   display: flex;
@@ -70,20 +71,38 @@
   width: 100%;
   max-width: 400px;
   display: grid;
-  gap: var(--gt-space-3);
+  gap: var(--gt-space-4);
+  padding: var(--gt-space-8) var(--gt-space-6);
+}
+
+.shell-login__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--gt-space-4);
 }
 
 .shell-login__logo {
-  display: flex;
-  justify-content: center;
-  margin-bottom: var(--gt-space-2);
-}
-
-.shell-login__logo img {
-  max-width: 200px;
+  max-width: 180px;
   width: 100%;
   height: auto;
   object-fit: contain;
+  margin-bottom: var(--gt-space-3);
+}
+
+.shell-login__title {
+  font-size: var(--gt-fs-3xl);
+  font-weight: 800;
+  color: var(--gt-graphite-800);
+  margin: 0;
+  line-height: 1;
+}
+
+.shell-login__subtitle {
+  font-size: var(--gt-fs-sm);
+  color: var(--gt-graphite-600);
+  margin: 0;
 }
 
 .shell-login__card form {
@@ -91,6 +110,40 @@
   gap: var(--gt-space-3);
 }
 
+.shell-login__password-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.shell-login__password-group .ds-input {
+  padding-right: 40px; /* espaço para o olhinho */
+}
+
+.shell-login__eye-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--gt-graphite-600);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.shell-login__eye-btn:hover {
+  color: var(--gt-green-600);
+}
+
+.shell-login__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: var(--gt-space-2);
+}
+
+/* --- OUTROS --- */
 .shell-error {
   display: grid;
   gap: var(--gt-space-3);
@@ -120,6 +173,7 @@
   text-align: center;
 }
 
+/* --- PAINEL INTRANET --- */
 .shell-content-editor {
   display: grid;
   gap: var(--gt-space-4);
