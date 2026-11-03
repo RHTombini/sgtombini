@@ -2,11 +2,11 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 import type { Env } from './env';
 
 export function createSupabaseClient(env: Env): SupabaseClient {
-  const url = env.SUPABASE_URL;
-  const key = env.SUPABASE_ANON_KEY;
+  const url = env.SUPABASE_URL || process.env.SUPABASE_URL;
+  const key = env.SUPABASE_ANON_KEY || process.env.SUPABASE_ANON_KEY;
 
   if (!url || !key) {
-    throw new Error('Configuração do Supabase ausente no Worker (URL ou KEY)');
+    throw new Error('Configuração do Supabase ausente: URL ou KEY vazias');
   }
 
   return createClient(url, key, {
@@ -20,11 +20,11 @@ export function createSupabaseClient(env: Env): SupabaseClient {
 }
 
 export function createSupabaseAdmin(env: Env): SupabaseClient {
-  const url = env.SUPABASE_URL;
-  const key = env.SUPABASE_SERVICE_ROLE_KEY;
+  const url = env.SUPABASE_URL || process.env.SUPABASE_URL;
+  const key = env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !key) {
-    throw new Error('Configuração do Supabase ausente no Worker (URL ou SERVICE_ROLE)');
+    throw new Error('Configuração do Supabase ausente: URL ou SERVICE_ROLE vazias');
   }
 
   return createClient(url, key, {
