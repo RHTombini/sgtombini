@@ -1,40 +1,26 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import { env } from 'cloudflare:workers';
+
+// Chaves fixas para garantir o funcionamento do login
+const SUPABASE_URL = 'https://tjkoywwwqknysdccwzvx.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_h7GUSrDnqPziAmzUDJf6Lw_7NrE1zT2';
 
 export function createSupabaseClient(): SupabaseClient {
-  const url = env.SUPABASE_URL;
-  const key = env.SUPABASE_ANON_KEY;
-
-  console.log('DIAGNOSTICO - URL:', url ? 'OK' : 'VAZIA');
-  console.log('DIAGNOSTICO - KEY:', key ? 'OK' : 'VAZIA');
-
-  if (!url || !key) {
-    throw new Error(`Configuração ausente: URL=${!!url}, KEY=${!!key}`);
-  }
-
-  return createClient(url, key, {
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: { persistSession: false, autoRefreshToken: false },
     global: {
       headers: {
-        apikey: key,
+        apikey: SUPABASE_ANON_KEY, // A chave sb_publishable_ DEVE ir no apikey
       },
     },
   });
 }
 
 export function createSupabaseAdmin(): SupabaseClient {
-  const url = env.SUPABASE_URL;
-  const key = env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!url || !key) {
-    throw new Error(`Configuração ausente: URL=${!!url}, SERVICE_ROLE=${!!key}`);
-  }
-
-  return createClient(url, key, {
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
     auth: { persistSession: false, autoRefreshToken: false },
     global: {
       headers: {
-        apikey: key,
+        apikey: SUPABASE_ANON_KEY,
       },
     },
   });
