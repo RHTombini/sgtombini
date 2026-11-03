@@ -10,6 +10,8 @@ import { IntranetAdminRoutes } from '../pages/intranet/intranet-routes';
 import { QrCodeRoutes } from '../pages/qrcode/qrcode-routes';
 import { CrmRoutes } from '../pages/crm/crm-routes';
 import { AdminRoutes } from '../pages/admin/admin-routes';
+import { RhRoutes } from '../pages/rh/rh-routes';
+import { SmsRoutes } from '../pages/sms/sms-routes';
 
 export function App() {
   return (
@@ -29,6 +31,8 @@ export function App() {
         {QrCodeRoutes()}
         {CrmRoutes()}
         {AdminRoutes()}
+        {RhRoutes()}
+        {SmsRoutes()}
         <Route path="*" element={<NotFoundPage />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
