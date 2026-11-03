@@ -1,5 +1,4 @@
 import { z } from 'zod';
-import type { Env } from '../env';
 import { createSupabaseClient } from '../supabase';
 
 const loginSchema = z.object({
@@ -7,7 +6,7 @@ const loginSchema = z.object({
   password: z.string().min(6),
 });
 
-export async function handleLogin(request: Request, env: Env): Promise<Response> {
+export async function handleLogin(request: Request): Promise<Response> {
   const body = await request.json().catch(() => null);
   const parsed = loginSchema.safeParse(body);
 
@@ -16,23 +15,16 @@ export async function handleLogin(request: Request, env: Env): Promise<Response>
   }
 
   try {
-    const supabase = createSupabaseClient(env);
+    const supabase = createSupabaseClient();
     const { data, error } = await supabase.auth.signInWithPassword(parsed.data);
 
     if (error) {
       console.error('Supabase login error:', error);
-      return json(
-        { error: { code: 'AUTH_FAILED', message: error.message } },
-        401
-      );
+      return json({ error: { code: 'AUTH_FAILED', message: error.message } }, 401);
     }
 
     if (!data.session) {
-      console.error('Supabase login: no session returned');
-      return json(
-        { error: { code: 'AUTH_FAILED', message: 'Sessão não retornada' } },
-        401
-      );
+      return json({ error: { code: 'AUTH_FAILED', message: 'Sessão não retornada' } }, 401);
     }
 
     return json({
@@ -40,32 +32,24 @@ export async function handleLogin(request: Request, env: Env): Promise<Response>
         accessToken: data.session.access_token,
         refreshToken: data.session.refresh_token,
         expiresAt: data.session.expires_at,
-        user: {
-          id: data.user?.id,
-          email: data.user?.email,
-        },
+        user: { id: data.user?.id, email: data.user?.email },
       },
     });
   } catch (err) {
     console.error('Worker login exception:', err);
     const message = err instanceof Error ? err.message : 'Erro interno no login';
-    return json(
-      { error: { code: 'INTERNAL_ERROR', message } },
-      500
-    );
+    return json({ error: { code: 'INTERNAL_ERROR', message } }, 500);
   }
 }
 
-export async function handleRefresh(request: Request, env: Env): Promise<Response> {
+export async function handleRefresh(request: Request): Promise<Response> {
   const body = (await request.json().catch(() => null)) as { refreshToken?: string } | null;
   if (!body?.refreshToken) {
     return json({ error: { code: 'INVALID_INPUT', message: 'refreshToken obrigatório' } }, 400);
   }
 
-  const supabase = createSupabaseClient(env);
-  const { data, error } = await supabase.auth.refreshSession({
-    refresh_token: body.refreshToken,
-  });
+  const supabase = createSupabaseClient();
+  const { data, error } = await supabase.auth.refreshSession({ refresh_token: body.refreshToken });
 
   if (error || !data.session) {
     return json({ error: { code: 'REFRESH_FAILED', message: 'Sessão inválida' } }, 401);
@@ -80,15 +64,13 @@ export async function handleRefresh(request: Request, env: Env): Promise<Respons
   });
 }
 
-export async function handleLogout(request: Request, env: Env): Promise<Response> {
+export async function handleLogout(request: Request): Promise<Response> {
   const auth = request.headers.get('Authorization') ?? '';
   const token = auth.startsWith('Bearer ') ? auth.slice(7) : null;
-
   if (token) {
-    const supabase = createSupabaseClient(env);
+    const supabase = createSupabaseClient();
     await supabase.auth.signOut().catch(() => undefined);
   }
-
   return json({ data: { ok: true } });
 }
 
