@@ -2,28 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase = createClient(
-  'https://tjkoywwwqknysdccwzvx.supabase.co',
+  'https://tjkoywwwqknysdccwzvx.supabase.co', 
   'sb_publishable_h7GUSrDnqPziAmzUDJf6Lw_7NrE1zT2'
 );
 
+interface Employee {
+  full_name: string;
+  birth_date: string;
+}
+
 export function BirthdaySection() {
   const [birthdays, setBirthdays] = useState<any[]>([]);
-  const currentMonth = new Date().getMonth() + 1; // 1 a 12
+  const currentMonth = new Date().getMonth() + 1;
 
   useEffect(() => {
-    // Busca funcionários ativos e filtra pelo mês de nascimento no frontend
-    // (Em um sistema maior, isso seria uma função SQL específica)
     supabase.from('emp_employees').select('full_name, birth_date').eq('status', 'active')
       .then(({ data }) => {
         if (data) {
-          const filtered = data
-            .filter(emp => {
+          const employees = data as Employee[];
+          const filtered = employees
+            .filter((emp) => {
               if (!emp.birth_date) return false;
               const month = new Date(emp.birth_date).getUTCMonth() + 1;
               return month === currentMonth;
             })
-            .map(emp => ({
-              name: emp.full_name.split(' ')[0], // Pega só o primeiro nome
+            .map((emp) => ({
+              name: emp.full_name.split(' ')[0],
               day: new Date(emp.birth_date).getUTCDate()
             }))
             .sort((a, b) => a.day - b.day);
@@ -34,28 +38,24 @@ export function BirthdaySection() {
 
   return (
     <div className="intra-block">
-      <div className="intra-block__header">
-        <div className="intra-block__icon intra-block__icon--pink">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-        </div>
-        <div>
-          <h3 className="intra-block__title">ANIVERSARIANTES DO MÊS</h3>
-          <p className="intra-block__desc">Celebramos a vida de quem faz parte da nossa história.</p>
-        </div>
-      </div>
+      <h3 className="intra-block__title">CELEBRANDO A VIDA</h3>
+      <p className="intra-block__desc">
+        Celebramos as histórias e as conexões que construímos todos os dias. 
+        Desejamos a todos que celebram mais um ciclo, muita saúde, paz e realizações!
+      </p>
 
-      <ul className="intra-birthdays" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+      <div className="intra-birthdays-carousel">
         {birthdays.length === 0 ? (
-          <li style={{ gridColumn: 'span 2', fontSize: 13, color: '#6E6869' }}>Nenhum aniversariante este mês.</li>
+          <p style={{ fontSize: 13, color: '#6E6869' }}>Nenhum aniversariante este mês.</p>
         ) : (
           birthdays.map((b, i) => (
-            <li key={i} className="intra-birthday" style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 12px', background: '#FFF5F8', borderRadius: 8, fontSize: 13 }}>
-              <span style={{ fontWeight: 600, color: '#E94F87' }}>{String(b.day).padStart(2, '0')}</span>
-              <span style={{ color: '#4F484A', fontWeight: 500 }}>{b.name}</span>
-            </li>
+            <div key={i} className="intra-birthday-card">
+              <span className="intra-birthday-card__day">{String(b.day).padStart(2, '0')}</span>
+              <span className="intra-birthday-card__name">{b.name}</span>
+            </div>
           ))
         )}
-      </ul>
+      </div>
     </div>
   );
 }
