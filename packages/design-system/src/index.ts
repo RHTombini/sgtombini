@@ -1,5 +1,17 @@
 export { Sidebar } from './Sidebar';
-export type { SidebarModule, SidebarProps } from './Sidebar';
+export type { SidebarItem, SidebarGroup, SidebarProps } from './Sidebar';
+
+export { PrintLayout } from './print/PrintLayout';
+export type { PrintLayoutProps } from './print/PrintLayout';
+
+export { ImportPreview } from './files/ImportPreview';
+export type { ImportPreviewProps, PreviewRow } from './files/ImportPreview';
+
+export { FileUploader } from './files/FileUploader';
+export type { FileUploaderProps } from './files/FileUploader';
+
+export { FileViewer } from './files/FileViewer';
+export type { FileViewerProps } from './files/FileViewer';
 
 export { Button } from './Button';
 export type { ButtonProps } from './Button';
@@ -21,18 +33,6 @@ export type { ToastProps, ToastVariant } from './Toast';
 
 export { Tooltip } from './Tooltip';
 export type { TooltipProps } from './Tooltip';
-
-export { PrintLayout } from './print/PrintLayout';
-export type { PrintLayoutProps } from './print/PrintLayout';
-
-export { ImportPreview } from './files/ImportPreview';
-export type { ImportPreviewProps, PreviewRow } from './files/ImportPreview';
-
-export { FileUploader } from './files/FileUploader';
-export type { FileUploaderProps } from './files/FileUploader';
-
-export { FileViewer } from './files/FileViewer';
-export type { FileViewerProps } from './files/FileViewer';
 
 export { buildVcard, downloadVcard } from './vcard';
 export type { VcardInput } from './vcard';
