@@ -40,7 +40,6 @@ export function NewPeopleSection() {
             <strong className="intra-carousel__name">{n.nome}</strong>
             <span className="intra-carousel__role">{n.funcao}</span>
             
-            {/* Etiqueta de Vínculo para evitar problemas trabalhistas */}
             <span className={`intra-badge intra-badge--${n.tipoVinculo.toLowerCase().replace(/\s+/g, '-')}`} style={{ marginTop: 4 }}>
               {n.tipoVinculo}
             </span>
