@@ -24,21 +24,24 @@ export function NewPeopleSection() {
         </div>
       </div>
 
-      <div className="intra-people-grid">
+      {/* Carrossel de Fotos */}
+      <div className="intra-carousel">
         {items.map((n, i) => (
-          <div key={i} className="intra-person">
-            <div className="intra-person__photo">
+          <div key={i} className="intra-carousel__item">
+            <div className="intra-carousel__photo-wrapper">
               {n.foto && n.autorizado ? (
-                <img src={n.foto} alt={`Foto de ${n.nome}`} />
+                <img src={n.foto} alt={`Foto de ${n.nome}`} className="intra-carousel__photo" />
               ) : (
-                <div className="intra-person__placeholder">
+                <div className="intra-carousel__photo intra-carousel__photo--placeholder">
                   {n.nome.charAt(0)}
                 </div>
               )}
             </div>
-            <strong className="intra-person__name">{n.nome}</strong>
-            <span className="intra-person__role">{n.funcao}</span>
-            <span className={`intra-badge intra-badge--${n.tipoVinculo.toLowerCase()}`}>
+            <strong className="intra-carousel__name">{n.nome}</strong>
+            <span className="intra-carousel__role">{n.funcao}</span>
+            
+            {/* Etiqueta de Vínculo para evitar problemas trabalhistas */}
+            <span className={`intra-badge intra-badge--${n.tipoVinculo.toLowerCase().replace(/\s+/g, '-')}`} style={{ marginTop: 4 }}>
               {n.tipoVinculo}
             </span>
           </div>
