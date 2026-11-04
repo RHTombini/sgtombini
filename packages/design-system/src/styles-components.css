@@ -1,7 +1,4 @@
-/* Logo */
 .ds-logo { height: 2cm; width: auto; object-fit: contain; display: block; }
-
-/* Campos de formulário e modal */
 .ds-field { display: grid; gap: var(--gt-space-1); }
 .ds-field-hint { display: block; font-size: var(--gt-fs-xs); color: var(--gt-graphite-600); }
 .ds-modal__body { margin-top: var(--gt-space-3); }
@@ -17,7 +14,6 @@
   overflow-y: auto;
 }
 
-/* Scrollbar fina e elegante */
 .ds-sidebar::-webkit-scrollbar { width: 4px; }
 .ds-sidebar::-webkit-scrollbar-thumb { background: var(--gt-divider); border-radius: 4px; }
 
@@ -57,7 +53,6 @@
   text-decoration: none;
 }
 
-/* Item ativo (Barrinha verde e fundo suave) */
 .ds-sidebar__link--active {
   background-color: var(--gt-green-100);
   color: var(--gt-green-700);
