@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient('https://tjkoywwwqknysdccwzvx.supabase.co', 'sb_publishable_h7GUSrDnqPziAmzUDJf6Lw_7NrE1zT2');
+const supabase = createClient(
+  'https://tjkoywwwqknysdccwzvx.supabase.co', 
+  'sb_publishable_h7GUSrDnqPziAmzUDJf6Lw_7NrE1zT2'
+);
+
+interface Event {
+  id: string;
+  title: string;
+  event_date: string;
+  description: string;
+}
 
 export function CalendarSection() {
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
-    supabase.from('intra_events').select('*').order('event_date', { ascending: true }).then(({ data }) => setEvents(data || []));
+    supabase.from('intra_events').select('*').order('event_date', { ascending: true }).then(({ data }) => {
+      if (data) setEvents(data as Event[]);
+    });
   }, []);
 
   return (
