@@ -1,14 +1,27 @@
 import type { Env } from './env';
+import { parseAllowedOrigins } from './env';
 
-export function corsHeaders(_request: Request, _env: Env): Headers {
+export function corsHeaders(request: Request, env: Env): Headers {
+  const origin = request.headers.get('Origin') ?? '';
+  const allowed = parseAllowedOrigins(env);
   const headers = new Headers();
-  
-  // Força a liberação para o seu frontend específico e para localhost
-  headers.set('Access-Control-Allow-Origin', 'https://sgt-shell.pages.dev');
+
+  const isAllowed =
+    allowed.includes('*') ||
+    allowed.includes(origin) ||
+    origin === 'https://sgt-shell.pages.dev' ||
+    origin === 'http://localhost:5173' ||
+    (origin.startsWith('https://') && origin.endsWith('.sgt-shell.pages.dev'));
+
+  if (isAllowed && origin) {
+    headers.set('Access-Control-Allow-Origin', origin);
+  }
+
+  headers.set('Vary', 'Origin');
   headers.set('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE,OPTIONS');
   headers.set('Access-Control-Allow-Headers', 'Content-Type,Authorization,apikey');
   headers.set('Access-Control-Max-Age', '86400');
-  
+
   return headers;
 }
 
