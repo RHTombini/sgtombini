@@ -8,6 +8,7 @@ export interface Env {
 }
 
 export function parseAllowedOrigins(env: Env): string[] {
+  if (!env.ALLOWED_ORIGINS) return [];
   return env.ALLOWED_ORIGINS.split(',')
     .map((o) => o.trim())
     .filter((o) => o.length > 0);
