@@ -1,4 +1,5 @@
 import React from 'react';
+import { WeatherWidget } from './WeatherWidget';
 
 export function Header() {
   return (
@@ -10,6 +11,11 @@ export function Header() {
           <span className="intra-header__slogan">PESSOAS QUE CONSTRÓEM</span>
         </div>
       </div>
+
+      <div className="intra-header__center">
+        <WeatherWidget />
+      </div>
+
       <div className="intra-header__tagline">
         <span>Nossa gente,</span>
         <span>segue construindo.</span>
