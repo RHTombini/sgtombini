@@ -6,7 +6,7 @@ export function CampaignSection() {
       <div className="intra-campaign-wrapper">
         <img 
           src="/assets/brand/banner-novembro-azul.png" 
-          alt="Campanha Novembro Azul - Cuide da sua saúde" 
+          alt="Campanha Novembro Azul" 
           className="intra-campaign-img" 
         />
       </div>
