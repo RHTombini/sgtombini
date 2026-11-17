@@ -697,3 +697,23 @@ body {
   }
   .intra-hero__title { font-size: 48px; }
 }
+/* ============================================================ */
+/* CAMPANHA / BANNER (NOVEMBRO AZUL) */
+/* ============================================================ */
+.intra-campaign-wrapper {
+  width: 100%;
+  max-width: 600px; /* Limita a largura para a imagem quadrada não ficar gigante */
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--intra-border);
+  background: var(--intra-white);
+}
+
+.intra-campaign-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; /* Garante que a imagem apareça inteira, sem cortes */
+}
