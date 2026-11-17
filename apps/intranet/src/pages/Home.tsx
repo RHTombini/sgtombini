@@ -4,7 +4,6 @@ import { Hero } from '../components/Hero';
 import { NewsSection } from '../components/NewsSection';
 import { NewPeopleSection } from '../components/NewPeopleSection';
 import { BirthdaySection } from '../components/BirthdaySection';
-import { CampaignSection } from '../components/CampaignSection';
 import { CalendarSection } from '../components/CalendarSection';
 import { BenefitsCarousel } from '../components/BenefitsCarousel';
 import { Footer } from '../components/Footer';
@@ -14,20 +13,13 @@ export function Home() {
     <div className="intra-root">
       <Header />
       <main>
+        {/* O Hero agora já inclui o banner lateral internamente */}
         <Hero />
-        <CampaignSection />
 
         {/* SEÇÃO RH TOMBINI */}
         <div className="intra-container" style={{ paddingTop: '40px' }}>
-          <h2 style={{ 
-            fontSize: '28px', 
-            fontWeight: 800, 
-            textTransform: 'uppercase', 
-            letterSpacing: '-0.5px',
-            margin: '0 0 24px 0',
-            color: 'var(--intra-graphite)'
-          }}>
-            RH <span style={{ color: 'var(--intra-green)' }}>Tombini</span>
+          <h2 className="intra-section-title">
+            RH <span>Tombini</span>
           </h2>
         </div>
 
