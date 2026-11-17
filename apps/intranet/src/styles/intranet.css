@@ -225,7 +225,7 @@ body {
 }
 
 /* ============================================================ */
-/* HERO */
+/* HERO (COM BANNER LATERAL) */
 /* ============================================================ */
 .intra-hero {
   background: linear-gradient(135deg, #ffffff 0%, #F4F6F2 100%);
@@ -241,6 +241,14 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+}
+
+/* Grid específico do Hero com banner */
+.intra-hero__content--with-banner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr 1fr; /* Texto | Banner | Botões */
+  gap: 40px;
+  align-items: center;
 }
 
 .intra-hero__welcome {
@@ -283,6 +291,21 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.intra-hero__banner-lateral {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.intra-hero__banner-img {
+  width: 100%;
+  max-width: 220px; /* Banner lateral não gigante */
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* ============================================================ */
@@ -336,27 +359,6 @@ body {
 }
 
 /* ============================================================ */
-/* BANNER DA CAMPANHA (NOVEMBRO AZUL) */
-/* ============================================================ */
-.intra-campaign-wrapper {
-  width: 100%;
-  max-width: 600px; /* Ajustado para a imagem quadrada */
-  margin: 0 auto;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--intra-border);
-  background: var(--intra-white);
-}
-
-.intra-campaign-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-/* ============================================================ */
 /* BLOCOS DE CONTEÚDO */
 /* ============================================================ */
 .intra-block {
@@ -383,7 +385,7 @@ body {
 }
 
 /* ============================================================ */
-/* CARROSSEL DE FOTOS */
+/* CARROSSEL DE FOTOS (NOVOS COLABORADORES) */
 /* ============================================================ */
 .intra-carousel {
   display: flex;
@@ -912,6 +914,23 @@ body {
 .intra-footer__icon--instagram { background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF); }
 .intra-footer__icon--site { background: var(--intra-green); }
 
+/* ============================================================ */
+/* RESPONSIVIDADE (MOBILE) */
+/* ============================================================ */
+@media (max-width: 1024px) {
+  .intra-hero__content--with-banner {
+    grid-template-columns: 1fr; /* Vira uma coluna só */
+    text-align: center;
+  }
+  .intra-hero__banner-lateral {
+    order: -1; /* Banner fica no topo no celular */
+    margin-bottom: 20px;
+  }
+  .intra-hero__actions {
+    align-items: center;
+  }
+}
+
 @media (max-width: 768px) {
   .intra-footer__inner {
     flex-direction: column;
@@ -930,8 +949,5 @@ body {
     align-items: center;
   }
   .intra-hero { padding: 40px 20px; }
-  .intra-hero__content {
-    flex-direction: column;
-  }
   .intra-hero__title { font-size: 48px; }
 }
