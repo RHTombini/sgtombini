@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-// TODO: substituir por dados do Supabase (tabela intra_employees) quando conectar
 const MOCK_USER = {
   displayName: 'Raul Ramalho',
 };
@@ -18,12 +17,12 @@ export function Hero() {
   useEffect(() => {
     const interval = setInterval(() => {
       setGreeting(getGreeting());
-    }, 60 * 1000); // atualiza a cada 1 min
+    }, 60 * 1000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="intra-hero">
+    <section className="intra-hero intra-hero--bg">
       <div className="intra-hero__content intra-hero__content--with-banner">
         
         {/* COLUNA 1: Texto */}
